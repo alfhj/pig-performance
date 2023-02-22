@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InfoPageComponent } from './info-page/info-page.component';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: DashboardComponent },
   { path: 'info-page', component: InfoPageComponent },
 ];
 

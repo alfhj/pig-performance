@@ -1,0 +1,40 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.searchbar {
+  height: 30px;
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.searchBtn {
+  height: 35px;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  height: 40px;
+  background-color: grey;
+  margin-bottom: 10px;
+}
