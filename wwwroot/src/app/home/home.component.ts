@@ -16,6 +16,8 @@ export class HomeComponent {
   // ngOnInit() {
   //   this.posts = this.postService.getAllPosts();
   // }
+
+  // Fjern denne under
   constructor() {
     console.log('hey')
   };
