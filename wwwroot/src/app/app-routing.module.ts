@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { InfoPageComponent } from './info-page/info-page.component';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'info-page', component: InfoPageComponent },
+  {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
 ];
+
+// Denne skal mellom '' og 'home' i Routes:
+// {path: 'post/:id', component: PostComponent},
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
