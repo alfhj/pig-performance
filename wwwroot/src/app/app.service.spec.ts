@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AppService } from './app.service';
+import { PigService } from './app.service';
 
 describe('AppService', () => {
-  let service: AppService;
+  let service: PigService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AppService);
+    service = TestBed.inject(PigService);
   });
 
   it('should be created', () => {
