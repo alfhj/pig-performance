@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 // import {AddPostService} from '../add-post.service';
 // import {Observable} from 'rxjs';
 // import {PostPayload} from '../add-post/post-payload';
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
 
   // posts: Observable<Array<PostPayload>>;
@@ -18,8 +20,15 @@ export class HomeComponent {
   // }
 
   // Fjern denne under
-  constructor() {
+
+  constructor(private router: Router) {
     console.log('hey')
   };
+
+  // Denne kan ta inn ID som parameter og navigere videre.
+  // Mellomlagre ID for å hente korrekt data
+  public viewInfoPage() {
+    this.router.navigateByUrl('info')
+  }
 
 }

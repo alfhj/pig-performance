@@ -1,19 +1,104 @@
-<div class="content">
-  <div class="container">
-    <!-- <div class="row" *ngFor="let post of posts | async">
-      <div class="blogpost">
-        <h3><a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a></h3>
-        <div>
-          <i class="fas fa-user"></i> Author: <p>{{post.username}}</p>
-        </div>
-        <p [innerHTML]="post.content"></p>
-        <div>
-          <a type="button" href="/post/{{post.id}}" class="read-more btn btn-default">Read More</a>
-        </div>
-        <hr>
+<div class="container">
+  <!-- In progress -->
+  <!-- <div class="row" *ngFor="let post of posts | async">
+    <div class="blogpost">
+      <h3><a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a></h3>
+      <div>
+        <i class="fas fa-user"></i> Author: <p>{{post.username}}</p>
+      </div>
+      <p [innerHTML]="post.content"></p>
+      <div>
+        <a type="button" href="/post/{{post.id}}" class="read-more btn btn-default">Read More</a>
       </div>
       <hr>
-    </div> -->
-    Works
+    </div>
+    <hr>
+  </div> -->
+
+  <div class="searchWrapper">
+    <!-- Link this with database for correct display -->
+    <select>
+      <option>Binge 1</option>
+      <option>Binge 2</option>
+      <option>Binge 3</option>
+      <option>Binge 4</option>
+    </select>
+    <!-- Search in "Binge" -->
+    <input type="text" class="searchbar" placeholder="Søk ..."/>
   </div>
+
+  <!-- The output is a list that should loop through the data -->
+  <ul>
+    <li>
+      <div class="pigContainer">
+        <div class="pigItem">
+          <b>ID: 777001</b><br/>
+          Binge: 1<br/>
+          Hamar, Norway
+        </div>
+        <div class="pigItem">
+          Dagens aktivitet: 2000<br/>
+          Aktivitet per mnd: 2300
+        </div>
+        <button type="button" class="infoBtn" (click)="viewInfoPage()">Vis mer</button>
+      </div>
+    </li>
+    <!-- Just mock, remove after demo -->
+    <li>
+      <div class="pigContainer">
+        <div class="pigItem">
+          <b>ID: 777002</b><br/>
+          Binge: 1<br/>
+          Hamar, Norway
+        </div>
+        <div class="pigItem">
+          Dagens aktivitet: 2100<br/>
+          Aktivitet per mnd: 2250
+        </div>
+        <button type="button" class="infoBtn" (click)="viewInfoPage()">Vis mer</button>
+      </div>
+    </li>
+    <li>
+      <div class="pigContainer">
+        <div class="pigItem">
+          <b>ID: 777003</b><br/>
+          Binge: 1<br/>
+          Hamar, Norway
+        </div>
+        <div class="pigItem">
+          Dagens aktivitet: 3000<br/>
+          Aktivitet per mnd: 2500
+        </div>
+        <button type="button" class="infoBtn" (click)="viewInfoPage()">Vis mer</button>
+      </div>
+    </li>
+    <li>
+      <div class="pigContainer">
+        <div class="pigItem">
+          <b>ID: 777004</b><br/>
+          Binge: 1<br/>
+          Hamar, Norway
+        </div>
+        <div class="pigItem">
+          Dagens aktivitet: 800<br/>
+          Aktivitet per mnd: 1900
+        </div>
+        <button type="button" class="infoBtn" (click)="viewInfoPage()">Vis mer</button>
+      </div>
+    </li>
+    <li>
+      <div class="pigContainer">
+        <div class="pigItem">
+          <b>ID: 777005</b><br/>
+          Binge: 1<br/>
+          Hamar, Norway
+        </div>
+        <div class="pigItem">
+          Dagens aktivitet: 2400<br/>
+          Aktivitet per mnd: 2300
+        </div>
+        <button type="button" class="infoBtn" (click)="viewInfoPage()">Vis mer</button>
+      </div>
+    </li>
+  </ul>
 </div>
