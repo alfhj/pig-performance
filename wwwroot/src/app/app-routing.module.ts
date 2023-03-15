@@ -5,9 +5,11 @@ import { InfoPageComponent } from './info-page/info-page.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  // Remember to add auth on routes
+  {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'info', component: InfoPageComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'info-page', component: InfoPageComponent}
 ];
 
 // Denne skal mellom '' og 'home' i Routes:
