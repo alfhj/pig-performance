@@ -134,3 +134,4 @@ dist
 .angular/
 .firebase/*.cache
 nordic/
+.DS_Store
