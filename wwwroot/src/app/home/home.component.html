@@ -18,15 +18,43 @@
 
   <div class="searchWrapper">
     <!-- Link this with database for correct display -->
-    <select>
-      <option>Alle</option>
-      <option>Binge 1</option>
-      <option>Binge 2</option>
-      <option>Binge 3</option>
-      <option>Binge 4</option>
-    </select>
-    <!-- Search in "Binge" -->
     <input type="text" class="searchbar" placeholder="Søk ..."/>
+  </div>
+  <div class="filterWrapper">
+    <select>
+      <option value="none" selected disabled hidden>Binge</option>
+      <option>Alle</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+    </select>
+    <select>
+      <option value="none" selected disabled hidden>Kjønn</option>
+      <option>Alle</option>
+      <option>Råne</option>
+      <option>Purke</option>
+    </select>
+    <select>
+      <option value="none" selected disabled hidden>Alder</option>
+      <option>Alle</option>
+      <option>Under 1 mnd</option>
+      <option>1 - 2 mnd</option>
+      <option>3 - 4 mnd</option>
+      <option>5 - 6 mnd</option>
+      <option>Over 6 mnd</option>
+    </select>
+    <select>
+      <option value="none" selected disabled hidden>Helse</option>
+      <option>Alle</option>
+      <option>Bra</option>
+      <option>Kritisk</option>
+    </select>
+    <select>
+      <option value="none" selected disabled hidden>Sorter</option>
+      <option>Stigende</option>
+      <option>Synkende</option>
+    </select>
   </div>
 
   <!-- The output is a list that should loop through the data -->
@@ -36,12 +64,15 @@
         <div class="pigItem">
           <b>ID: 777001</b><br/>
           Binge: 1<br/>
-          Hamar, Norway
+          Kjønn: Purke<br/>
+          Alder: 2 mnd
         </div>
-        <div class="pigItem">
-          Dagens aktivitet: 2000<br/>
-          Aktivitet per mnd: 2300
+        <div class="pigStats">
+          Aktivitet: <b class="bad">Høy</b>
+          <br/><br/>
+          Aktivitet under hviletid: <b class="bad">Høy</b>
         </div>
+        <img src="../assets/warning_icon.png" alt="Logo" height="40px">
         <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
       </div>
     </li>
@@ -51,12 +82,15 @@
         <div class="pigItem">
           <b>ID: 777002</b><br/>
           Binge: 1<br/>
-          Hamar, Norway
+          Kjønn: Råne<br/>
+          Alder: 1 mnd
         </div>
-        <div class="pigItem">
-          Dagens aktivitet: 2100<br/>
-          Aktivitet per mnd: 2250
+        <div class="pigStats">
+          Aktivitet: <b class="bad">Høy</b>
+          <br/><br/>
+          Aktivitet under hviletid: <b class="good">Normal</b>
         </div>
+        <img src="../assets/warning_icon.png" alt="Logo" height="40px">
         <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
       </div>
     </li>
@@ -65,12 +99,15 @@
         <div class="pigItem">
           <b>ID: 777003</b><br/>
           Binge: 1<br/>
-          Hamar, Norway
+          Kjønn: Purke<br/>
+          Alder: 3 uker
         </div>
-        <div class="pigItem">
-          Dagens aktivitet: 3000<br/>
-          Aktivitet per mnd: 2500
+        <div class="pigStats">
+          Aktivitet: <b class="bad">Lav</b>
+          <br/><br/>
+          Aktivitet under hviletid: <b class="good">Normal</b>
         </div>
+        <img src="../assets/warning_icon.png" alt="Logo" height="40px">
         <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
       </div>
     </li>
@@ -79,11 +116,13 @@
         <div class="pigItem">
           <b>ID: 777004</b><br/>
           Binge: 1<br/>
-          Hamar, Norway
+          Kjønn: Råne<br/>
+          Alder: 3 mnd
         </div>
-        <div class="pigItem">
-          Dagens aktivitet: 800<br/>
-          Aktivitet per mnd: 1900
+        <div class="pigStats">
+          Aktivitet: <b class="good">Normal</b>
+          <br/><br/>
+          Aktivitet under hviletid: <b class="good">Normal</b>
         </div>
         <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
       </div>
@@ -93,11 +132,13 @@
         <div class="pigItem">
           <b>ID: 777005</b><br/>
           Binge: 1<br/>
-          Hamar, Norway
+          Kjønn: Purke<br/>
+          Alder: 4 mnd
         </div>
-        <div class="pigItem">
-          Dagens aktivitet: 2400<br/>
-          Aktivitet per mnd: 2300
+        <div class="pigStats">
+          Aktivitet: <b class="good">Normal</b>
+          <br/><br/>
+          Aktivitet under hviletid: <b class="good">Normal</b>
         </div>
         <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
       </div>

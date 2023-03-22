@@ -1,80 +1,130 @@
 .container {
-  max-width: 600px;
+  max-width: 750px;
   margin: auto;
   margin-top: 50px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Søk */
 .searchWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 select, input {
   height: 40px;
   width: 80px;
-  padding: 10px 4px;
+  padding: 10px 10px;
   border: 1px solid #c6c6c6;
-  border-radius: 10px;
-  margin-left: 10px;
+  border-radius: 25px;
 }
 
 .searchbar {
   width: 400px;
 }
 
+select {
+  color: white;
+  background-color: #5271FF;
+  font-weight: 800;
+  text-align: center;
+}
+
+.filterWrapper {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  margin-bottom: 20px;
+  column-gap: 10px;
+}
+
+.filterWrapper :last-child {
+  margin-right: 0;
+  margin-left: auto;
+  width: 100px;
+}
+
+.filterWrapper select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Safari, Chrome, Opera */
+  -webkit-appearance: none;
+}
+
+/* for IE10 */
+.filterWrapper select::-ms-expand {
+  display: none;
+}
+
+/* Liste med griser */
 ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
 li {
   background-color: white;
   border: 1px solid #c6c6c6;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 25px;
+  margin-bottom: 20px;
 }
 
 .pigContainer {
-  height: 100px;
+  height: 130px;
   display: flex;
-  margin: 0;
-  padding: 1rem 0;
+  padding-left: 25px;
+  padding-right: 25px;
   align-items: center;
 }
 
 .pigItem {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  height: 60px;
+  margin-left: 15px;
+  margin-right: 20px;
+  height: 80px;
   width: 300px;
   align-items: baseline;
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pigStats {
+  width: 300px;
+  justify-content: center;
+  align-items: baseline;
+  font-weight: 800;
+}
+
+.good {
+  color: green;
+}
+
+.bad {
+  color: red;
 }
 
 .pigItem:first-child {
-  width: 150px;
+  width: 120px;
+  padding-right: 10px;
   border-right: 1px solid #4a4a4a;
 }
 
+/* Vis mer knapp */
 .btnInfo {
   margin-left: auto;
   margin-right: 1rem;
-  width: 80px;
-  height: 45px;
+  width: 150px;
+  height: 40px;
   border: 1px solid #c6c6c6;
-  border-radius: 10px;
-  background-color: #ECECEC;
-  color: #4a4a4a;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
-  font-style: bold;
+  border-radius: 25px;
+  background-color: #5271FF;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
   transition: 0.3s;
 }
 
+
 .btnInfo:hover {
-  background-color: #FFB366;
+  background-color: #355aff;
   color: white;
 }
+
