@@ -28,7 +28,7 @@ export class HomeComponent {
   // Denne kan ta inn ID som parameter og navigere videre.
   // Mellomlagre ID for å hente korrekt data
   public viewInfoPage() {
-    this.router.navigateByUrl('info')
+    this.router.navigateByUrl('info-page')
   }
 
 }

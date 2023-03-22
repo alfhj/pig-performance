@@ -1,0 +1,52 @@
+{
+    "messages": [
+        {
+            "type": "data",
+            "device": {
+                "deviceId": "17fin43e0kd0l8",
+                "collectionId": "17fk1ja662n2g0",
+                "tags": {
+                    "name": "MKR1500_orange"
+                },
+                "firmware": {
+                    "currentFirmwareId": "0",
+                    "targetFirmwareId": "0",
+                    "firmwareVersion": "",
+                    "serialNumber": "",
+                    "modelNumber": "",
+                    "manufacturer": "",
+                    "state": "Current",
+                    "stateMessage": ""
+                },
+                "config": {
+                    "ciot": {
+                        "imsi": "242016001230449",
+                        "imei": "352753097867277"
+                    }
+                },
+                "metadata": {
+                    "ciot": {
+                        "gatewayId": "0",
+                        "allocatedIp": "10.0.0.150",
+                        "allocatedAt": "1678972580783",
+                        "mcc": 242,
+                        "mnc": 1,
+                        "country": "Norway",
+                        "network": "Telenor",
+                        "countryCode": "no",
+                        "lastUpdate": "1678972580783"
+                    }
+                },
+                "lastGatewayId": "1",
+                "lastTransport": "udp",
+                "lastReceived": "1678972614820241434",
+                "lastPayload": "SGVsbG8gZnJvbSBBcmR1aW5vIQ=="
+            },
+            "payload": "SGVsbG8gZnJvbSBBcmR1aW5vIQ==",
+            "received": "1678972614991",
+            "transport": "udp",
+            "messageId": "174ce8b2a076b048000000000000003f",
+            "gatewayId": "1"
+        }
+    ]
+}

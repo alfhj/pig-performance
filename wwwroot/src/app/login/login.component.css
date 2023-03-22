@@ -1,34 +1,69 @@
-:host {
-  margin: auto;
-}
-
 .loginContainer {
   background-color: #5271FF;
-  width: 500px;
-  height: auto;
+  width: 400px;
   border: 1px solid black;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.logoWrapper {
+  margin-top: 20px;
 }
 
 .title {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .loginFormWrapper {
+  display: flex;
+  flex-direction: column;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  margin-top: 20px;
+}
+
+.emailWrapper {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.inpLogin {
+  height: 30px;
+  width: 230px;
+  padding: 10px 4px;
+  border: 1px solid #c6c6c6;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 .btnLogin {
-  margin-left: auto;
-  margin-right: 1rem;
-  width: 80px;
-  height: 45px;
+  width: 100px;
+  height: 30px;
   border: 1px solid #c6c6c6;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #FFB366;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: medium;
   font-style: bold;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.btnLogin:hover {
+  background-color: #ff9020;
+  color: white;
 }

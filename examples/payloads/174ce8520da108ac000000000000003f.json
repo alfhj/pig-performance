@@ -1,0 +1,52 @@
+{
+    "messages": [
+        {
+            "type": "data",
+            "device": {
+                "deviceId": "17gdjnl1i9g72i",
+                "collectionId": "17fk1ja662n2g0",
+                "tags": {
+                    "name": "MKR500_white"
+                },
+                "firmware": {
+                    "currentFirmwareId": "0",
+                    "targetFirmwareId": "0",
+                    "firmwareVersion": "",
+                    "serialNumber": "",
+                    "modelNumber": "",
+                    "manufacturer": "",
+                    "state": "Current",
+                    "stateMessage": ""
+                },
+                "config": {
+                    "ciot": {
+                        "imsi": "242016001230449",
+                        "imei": "356726100630409"
+                    }
+                },
+                "metadata": {
+                    "ciot": {
+                        "gatewayId": "0",
+                        "allocatedIp": "10.0.0.149",
+                        "allocatedAt": "1678972195951",
+                        "mcc": 242,
+                        "mnc": 1,
+                        "country": "Norway",
+                        "network": "Telenor",
+                        "countryCode": "no",
+                        "lastUpdate": "1678972195951"
+                    }
+                },
+                "lastGatewayId": "1",
+                "lastTransport": "udp",
+                "lastReceived": "1678971388385928012",
+                "lastPayload": "SGVsbG8gZnJvbSBBcmR1aW5vIQ=="
+            },
+            "payload": "SGVsbG8gZnJvbSBBcmR1aW5vIQ==",
+            "received": "1678972200206",
+            "transport": "udp",
+            "messageId": "174ce8520da108ac000000000000003f",
+            "gatewayId": "1"
+        }
+    ]
+}

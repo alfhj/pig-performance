@@ -1,14 +1,19 @@
 <div class="loginContainer">
-  <img src="../assets/piggio_logo.png" alt="Logo" height="40px">
+  <div class="logoWrapper">
+    <img src="../assets/piggio_logo.png" alt="Logo" height="60px">
+  </div>
   <h1 class="title">
     Innlogging
   </h1>
   <div class="loginFormWrapper">
-    <label for="inpEmail">E-post:</label>
-    <input id="inpEmail" type="email" placeholder="leif.leifsen@bonde.no"/>
-    <br/>
-    <label for="inpPassword">Passord:</label>
-    <input id="inpPassword" type="password" placeholder="passord123"/>
+    <div class="emailWrapper">
+      <label for="inpEmail">E-post</label>
+      <input id="inpEmail" class="inpLogin" type="email" placeholder="leif.leifsen@bonde.no"/>
+    </div>
+    <div class="passwordWrapper">
+      <label for="inpPassword">Passord</label>
+      <input id="inpPassword" class="inpLogin" type="password" placeholder="passord123"/>
+    </div>
   </div>
-  <button class="btnLogin" type="button">Logg inn</button>
+  <button type="button" class="btnLogin" (click)="viewDashboard()">Logg inn</button>
 </div>
