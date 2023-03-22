@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pig-performance": {
+      "hosting": {
+        "routing-app": [
+          "pig-performance"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pig-performance"
+  }
+}
