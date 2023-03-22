@@ -3,26 +3,53 @@
 NB nbAccess(true);
 NBUDP udp;
 GPRS gprs;
-char apn[] = "mda.lab5e"; // replace with your APN name
+char apn[] = "mda.lab5e";               // replace with your APN name
 char server_address[] = "172.16.15.14"; // replace with your server's IP address
-int server_port = 1234; // replace with your server's port number
+int server_port = 1234;                 // replace with your server's port number
 char pin[] = "1112";
-void setup() {
+
+void sendToSpan(String data)
+{
+  udp.begin(1232);
+  if (udp.beginPacket(server_address, server_port))
+  {
+    Serial.println("Sending UDP packet");
+    udp.write(data);
+    udp.endPacket();
+    Serial.println("Packet sent");
+  }
+  else
+  {
+    Serial.println("Unable to send UDP packet");
+  }
+  udp.stop();
+}
+
+void setup()
+{
+  Serial1.begin(115200); // UART from nRF5
+
   Serial.begin(9600);
-  while (!Serial) {}
+  while (!Serial)
+  {
+  }
 
   // connection state
   boolean connected = false;
-  //Serial.println("AT+CGDCONT=1,\"IP\",\"mda.lab5e\"");
+  // Serial.println("AT+CGDCONT=1,\"IP\",\"mda.lab5e\"");
 
   // After starting the modem with NB.begin()
   // attach to the GPRS network with the APN, login and password
   Serial.println("Tryna connect");
-  while (!connected) {
-    if ((nbAccess.begin(pin, apn) == NB_READY) && (gprs.attachGPRS() == GPRS_READY)) {
-        Serial.println("Attached to gprs");
-        connected = true;
-    } else {
+  while (!connected)
+  {
+    if ((nbAccess.begin(pin, apn) == NB_READY) && (gprs.attachGPRS() == GPRS_READY))
+    {
+      Serial.println("Attached to gprs");
+      connected = true;
+    }
+    else
+    {
       Serial.println("Not connected");
       delay(1000);
     }
@@ -32,18 +59,12 @@ void setup() {
   Serial.println("Connected to the GPRS network");
 }
 
-void loop() {
-  //Serial.println("AT+CGDCONT=1,\"IP\",\"mda.lab5e\"");
-  udp.begin(1232);
-  if (udp.beginPacket(server_address, server_port)) {
-    Serial.println("Sending UDP packet");
-    udp.write("Hello from Arduino!");
-    udp.endPacket();
-    Serial.println("Packet sent");
-  } else {
-    Serial.println("Unable to send UDP packet");
+void loop()
+{
+  if (Serial1.available())
+  {
+    String rx_string = Serial1.readString();
+    Serial.println(rx_string);
+    sendToSpan(rx_string);
   }
-  udp.stop();
-
-  delay(10000); // wait for 10 seconds before sending the next packet
 }
