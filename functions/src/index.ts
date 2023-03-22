@@ -15,7 +15,7 @@ type SpanPayload = {
 
 admin.initializeApp();
 
-export const payload = functions.https.onRequest(async (request, response) => {
+export const payload = functions.region("europe-west1").https.onRequest(async (request, response) => {
   let message;
   try {
     message = request.body.messages[0];
