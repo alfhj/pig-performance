@@ -17,18 +17,33 @@ admin.initializeApp();
 
 export const payload = functions.region("europe-west1").https.onRequest(async (request, response) => {
   let message;
+  let chipId;
+  let movement;
+  let timestamp;
+
   try {
     message = request.body.messages[0];
-  } catch {
-    functions.logger.info("Invalid payload!", { structuredData: true });
+    const data = Buffer.from(message.payload, 'base64');
+    chipId = data.readInt16LE(0);
+    movement = data.readInt32LE(2);
+    //timestamp = new Date(parseInt(message.received)).toISOString().split('.')[0] + "Z";
+    timestamp = parseInt(message.received);
+  } catch(error) {
+    functions.logger.error("Invalid payload!");
+    functions.logger.error(error);
     response.status(400).send("Invalid payload");
     return;
   }
-  functions.logger.info("Hello logs!", { structuredData: true });
-  functions.logger.info(message, { structuredData: true });
+
+  functions.logger.info("Logging message");
+  functions.logger.info(message);
   await admin
     .database()
-    .ref("payloads/" + message.messageId)
+    .ref(`payloads/${message.messageId}`)
     .set(message);
+  await admin
+    .database()
+    .ref(`activity_data/${chipId}/${timestamp}`)
+    .set(movement);
   response.send("Thank you");
 });
