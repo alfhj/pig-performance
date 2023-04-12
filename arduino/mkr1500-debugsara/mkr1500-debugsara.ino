@@ -38,6 +38,7 @@ void setup() {
   SerialSARA.begin(baud);
 
   while (!Serial) {}
+  delay(1000);
   Serial.println("Startig debug program");
 }
 
