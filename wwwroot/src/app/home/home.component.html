@@ -66,15 +66,21 @@
           Binge: {{pig.pen_id}}<br/>
           Kjønn: {{pig.gender}}<br/>
           <!-- Need logic for age -->
-          Alder: 1 mnd
+          Alder: {{calcAge(pig.date_of_birth)}}
         </div>
         <div class="pigStats">
           <!-- Need to fix coloring of activity -->
-          Aktivitet: <b class="bad">{{pig.activity}}</b>
+          Aktivitet:
+          <b *ngIf="pig.activity === normalActivity" class="good">{{pig.activity}}</b>
+          <b *ngIf="pig.activity !== normalActivity" class="bad">{{pig.activity}}</b>
           <br/><br/>
-          Aktivitet under hviletid: <b class="good">{{pig.activity_rest}}</b>
+          Aktivitet under hviletid:
+          <b *ngIf="pig.activity_rest === normalActivity" class="good">{{pig.activity_rest}}</b>
+          <b *ngIf="pig.activity_rest !== normalActivity" class="bad">{{pig.activity_rest}}</b>
         </div>
-        <img src="../assets/warning_icon.png" alt="Logo" height="40px">
+        <div *ngIf="pig.activity !== normalActivity">
+          <img src="../assets/warning_icon.png" alt="Logo" height="40px">
+        </div>
         <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
       </div>
     </li>

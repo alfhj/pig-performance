@@ -18,6 +18,7 @@ export class HomeComponent {
   public location: string = "";
   public jsonData: any;
   public pigData: any[] = [];
+  public normalActivity: string = "normal";
 
   constructor(private router: Router, private database: Database) {
     const dbRef = ref(this.database, 'farms');
@@ -40,7 +41,18 @@ export class HomeComponent {
     }).catch((error) => {
       console.error(error);
     });
+
+    this.calcAge("2023-02-01T00:00:00Z");
   };
+
+  public calcAge(date: string): string {
+    const currDate = new Date();
+    const opDate = new Date(date);
+    let diff = Math.abs(currDate.getTime() - opDate.getTime());
+    let diffDays = Math.ceil((diff / (1000 * 3600 * 24))/ 30);
+    let result = diffDays + " mnd";
+    return result;
+  }
 
   // Denne kan ta inn ID som parameter og navigere videre.
   // Mellomlagre ID for å hente korrekt data
