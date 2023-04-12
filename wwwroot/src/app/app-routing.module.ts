@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   // Remember to add auth on routes
-  {path: '', component: HomeComponent},
+  {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'info-page', component: InfoPageComponent}
