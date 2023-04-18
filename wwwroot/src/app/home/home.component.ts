@@ -18,7 +18,12 @@ export class HomeComponent {
   public location: string = "";
   public jsonData: any;
   public pigData: any[] = [];
+
+  // Help text for logic in frontend
   public normalActivity: string = "normal";
+  public genderM: string = "male";
+  public activityH: string = "high";
+  public activityL: string = "low";
 
   constructor(private router: Router, private database: Database) {
     const dbRef = ref(this.database, 'farms');
@@ -31,6 +36,7 @@ export class HomeComponent {
         this.jsonData = (snapshot.child('9cfc573e-d5fc-40e8-a9f1-7613e64f79a1/pigs').val());
         console.log(this.owner);
         console.log(this.location);
+        console.log(this.jsonData);
         for (let i in this.jsonData) {
           this.pigData.push(this.jsonData[i])
         }
@@ -41,8 +47,6 @@ export class HomeComponent {
     }).catch((error) => {
       console.error(error);
     });
-
-    this.calcAge("2023-02-01T00:00:00Z");
   };
 
   public calcAge(date: string): string {
