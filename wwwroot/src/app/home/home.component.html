@@ -62,7 +62,7 @@
     <li *ngFor="let pig of pigData">
       <div class="pigContainer">
         <div class="pigItem">
-          <b>Chip-ID: {{pig.chip_id}}</b><br/>
+          <b>ID: {{pig.id}}</b><br/>
           Binge: {{pig.pen_id}}<br/>
           Kjønn: {{pig.gender === genderM ? "Purke" : "Råne"}}<br/>
           Alder: {{calcAge(pig.date_of_birth)}}
