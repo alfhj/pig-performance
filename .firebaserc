@@ -1,14 +1,18 @@
 {
+  "projects": {
+    "default": "pig-performance"
+  },
   "targets": {
     "pig-performance": {
       "hosting": {
-        "routing-app": [
+        "develop": [
           "pig-performance"
+        ],
+        "production": [
+          "piggio"
         ]
       }
     }
   },
-  "projects": {
-    "default": "pig-performance"
-  }
+  "etags": {}
 }

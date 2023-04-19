@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "site": "piggio",
+      "target": "production",
       "public": "wwwroot/dist/routing-app",
       "ignore": [
         "firebase.json",
@@ -10,7 +10,7 @@
       ]
     },
     {
-      "site": "pig-performance",
+      "target": "develop",
       "public": "wwwroot/dist/routing-app",
       "ignore": [
         "firebase.json",
