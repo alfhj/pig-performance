@@ -3,6 +3,8 @@ import { Database, get, ref } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js/auto';
 import 'chartjs-adapter-date-fns';
+import { nb } from 'date-fns/locale';
+
 // import {ActivatedRoute} from '@angular/router';
 // import {AddPostService} from '../add-post.service';
 // import {PostPayload} from '../add-post/post-payload';
@@ -69,11 +71,16 @@ export class InfoPageComponent {
 
   public async createChart() {
     const data = await this.getActivityData(this.chip_id);
-    const max = data[data.length - 1].timestamp;
-    const min = data[data.length - 1].timestamp - 24 * 60 * 60 * 1000;
+    //const max = data[data.length - 1].timestamp;
+    const nowHour = new Date();
+    nowHour.setMinutes(0);
+    nowHour.setSeconds(0);
+    nowHour.setMilliseconds(0);
+    const max = nowHour.valueOf();
+    const min = max - 23 * 60 * 60 * 1000;
     const binSize = 1 * 60 * 60 * 1000;
     let bins = [];
-    for (let x = min; x < max; x += binSize) {
+    for (let x = min; x <= max; x += binSize) {
       const subset = data.filter(
         (d) => d.timestamp >= x && d.timestamp < x + binSize
       );
@@ -82,6 +89,8 @@ export class InfoPageComponent {
         magnitude: subset.reduce((acc, cur) => acc + cur.magnitude, 0),
       });
     }
+    console.log(nowHour);
+    console.log(max);
     console.log(min, max);
     console.log(bins);
     this.chart = new Chart('activitydata', {
@@ -104,6 +113,11 @@ export class InfoPageComponent {
             max: max,
             min: min,
             type: 'time',
+            adapters: {
+              date: {
+                locale: nb,
+              },
+            },
             time: {
               unit: 'hour',
               displayFormats: {
