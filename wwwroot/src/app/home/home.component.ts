@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Database, get, onValue, ref } from '@angular/fire/database';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 // import {AddPostService} from '../add-post.service';
 // import {Observable} from 'rxjs';
 // import {PostPayload} from '../add-post/post-payload';
@@ -12,18 +14,49 @@ import { Router } from '@angular/router';
 
 export class HomeComponent {
 
-  // posts: Observable<Array<PostPayload>>;
-  // constructor(private postService: AddPostService) { }
+  public owner: string = "";
+  public location: string = "";
+  public jsonData: any;
+  public pigData: any[] = [];
 
-  // ngOnInit() {
-  //   this.posts = this.postService.getAllPosts();
-  // }
+  // Help text for logic in frontend
+  public normalActivity: string = "normal";
+  public genderM: string = "male";
+  public activityH: string = "high";
+  public activityL: string = "low";
 
-  // Fjern denne under
+  constructor(private router: Router, private database: Database) {
+    const dbRef = ref(this.database, 'farms');
 
-  constructor(private router: Router) {
-    console.log('hey')
+    get(dbRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        this.owner = snapshot.child('9cfc573e-d5fc-40e8-a9f1-7613e64f79a1/owner').val();
+        this.location = snapshot.child('9cfc573e-d5fc-40e8-a9f1-7613e64f79a1/location').val();
+        this.jsonData = (snapshot.child('9cfc573e-d5fc-40e8-a9f1-7613e64f79a1/pigs').val());
+        console.log(this.owner);
+        console.log(this.location);
+        console.log(this.jsonData);
+        for (let i in this.jsonData) {
+          this.pigData.push(this.jsonData[i])
+        }
+        console.log(this.pigData);
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
   };
+
+  public calcAge(date: string): string {
+    const currDate = new Date();
+    const opDate = new Date(date);
+    let diff = Math.abs(currDate.getTime() - opDate.getTime());
+    let diffDays = Math.ceil((diff / (1000 * 3600 * 24))/ 30);
+    let result = diffDays + " mnd";
+    return result;
+  }
 
   // Denne kan ta inn ID som parameter og navigere videre.
   // Mellomlagre ID for å hente korrekt data

@@ -59,86 +59,26 @@
 
   <!-- The output is a list that should loop through the data -->
   <ul>
-    <li>
+    <li *ngFor="let pig of pigData">
       <div class="pigContainer">
         <div class="pigItem">
-          <b>ID: 777001</b><br/>
-          Binge: 1<br/>
-          Kjønn: Purke<br/>
-          Alder: 2 mnd
+          <b>Chip-ID: {{pig.chip_id}}</b><br/>
+          Binge: {{pig.pen_id}}<br/>
+          Kjønn: {{pig.gender === genderM ? "Purke" : "Råne"}}<br/>
+          Alder: {{calcAge(pig.date_of_birth)}}
         </div>
         <div class="pigStats">
-          Aktivitet: <b class="bad">Høy</b>
+          <!-- Need to fix coloring of activity -->
+          Aktivitet:
+          <b *ngIf="pig.activity === normalActivity" class="good">Normal</b>
+          <b *ngIf="pig.activity !== normalActivity" class="bad">{{pig.activity === activityH ? "Høy" : "Lav"}}</b>
           <br/><br/>
-          Aktivitet under hviletid: <b class="bad">Høy</b>
+          Aktivitet under hviletid:
+          <b *ngIf="pig.activity_rest === normalActivity" class="good">Normal</b>
+          <b *ngIf="pig.activity_rest !== normalActivity" class="bad">{{pig.activity_rest === activityH ? "Høy" : "Lav"}}</b>
         </div>
-        <img src="../assets/warning_icon.png" alt="Logo" height="40px">
-        <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
-      </div>
-    </li>
-    <!-- Just mock, remove after demo -->
-    <li>
-      <div class="pigContainer">
-        <div class="pigItem">
-          <b>ID: 777002</b><br/>
-          Binge: 1<br/>
-          Kjønn: Råne<br/>
-          Alder: 1 mnd
-        </div>
-        <div class="pigStats">
-          Aktivitet: <b class="bad">Høy</b>
-          <br/><br/>
-          Aktivitet under hviletid: <b class="good">Normal</b>
-        </div>
-        <img src="../assets/warning_icon.png" alt="Logo" height="40px">
-        <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
-      </div>
-    </li>
-    <li>
-      <div class="pigContainer">
-        <div class="pigItem">
-          <b>ID: 777003</b><br/>
-          Binge: 1<br/>
-          Kjønn: Purke<br/>
-          Alder: 3 uker
-        </div>
-        <div class="pigStats">
-          Aktivitet: <b class="bad">Lav</b>
-          <br/><br/>
-          Aktivitet under hviletid: <b class="good">Normal</b>
-        </div>
-        <img src="../assets/warning_icon.png" alt="Logo" height="40px">
-        <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
-      </div>
-    </li>
-    <li>
-      <div class="pigContainer">
-        <div class="pigItem">
-          <b>ID: 777004</b><br/>
-          Binge: 1<br/>
-          Kjønn: Råne<br/>
-          Alder: 3 mnd
-        </div>
-        <div class="pigStats">
-          Aktivitet: <b class="good">Normal</b>
-          <br/><br/>
-          Aktivitet under hviletid: <b class="good">Normal</b>
-        </div>
-        <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
-      </div>
-    </li>
-    <li>
-      <div class="pigContainer">
-        <div class="pigItem">
-          <b>ID: 777005</b><br/>
-          Binge: 1<br/>
-          Kjønn: Purke<br/>
-          Alder: 4 mnd
-        </div>
-        <div class="pigStats">
-          Aktivitet: <b class="good">Normal</b>
-          <br/><br/>
-          Aktivitet under hviletid: <b class="good">Normal</b>
+        <div *ngIf="pig.activity !== normalActivity">
+          <img src="../assets/warning_icon.png" alt="Logo" height="40px">
         </div>
         <button type="button" class="btnInfo" (click)="viewInfoPage()">Vis mer</button>
       </div>
