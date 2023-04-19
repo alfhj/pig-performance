@@ -1,13 +1,24 @@
 {
-  "hosting": {
-    "site": "piggio",
-    "public": "wwwroot/dist/routing-app",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  },
+  "hosting": [
+    {
+      "site": "piggio",
+      "public": "wwwroot/dist/routing-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "site": "pig-performance",
+      "public": "wwwroot/dist/routing-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ],
   "functions": [
     {
       "source": "functions",

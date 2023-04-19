@@ -6,6 +6,7 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - main
+      - develop
   pull_request
 jobs:
   build_and_deploy:
@@ -14,8 +15,15 @@ jobs:
       - uses: actions/checkout@v3
       - run: cd wwwroot && npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PIG_PERFORMANCE }}'
           channelId: ${{ github.event.pull_request.head.repo.full_name == github.repository && 'live' }}
-          projectId: pig-performance
+          projectId: 'piggio'
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: ${{ github.ref == 'refs/heads/develop' }}
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PIG_PERFORMANCE }}'
+          projectId: 'pig-performance'
