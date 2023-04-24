@@ -1,36 +1,26 @@
 <app-header></app-header>
 <div class="container">
-  <!-- <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-8">
-      <h1 class="id-title">{{post.title}}</h1>
-      <span>
-        <p>by {{post.username}}</p>
-      </span>
-      <hr>
-      <p [innerHTML]="post.content"></p>
-      <hr>
-    </div>
-  </div> -->
   <div class="informationWrapper">
-    <b>ID: 777001</b>
     <p>
-      Binge: 1<br/>
-      Kjønn: Purke<br/>
-      Alder: 2 mnd<br/>
-      Vekt: 23kg<br/>
+      <b>ID: 133</b><br/>
+      Binge: 2<br/>
+      Chip-ID: 8733<br/>
       Sted: Hamar, Norge
+    </p>
+    <p>
+      <b>Informasjon</b><br/>
+      Kjønn: Purke<br/>
+      Alder: 6 mnd<br/>
+      Vekt: 25kg<br/>
     </p>
     <button type="button" class="btnHome" (click)="viewHomePage()">Tilbake</button>
   </div>
   <div class="graphWrapper">
     <div>
-      <h3>Aktivitet (siste uken)</h3>
-      Graf her
-    </div>
-    <div>
-      <h3>Aktivitet (siste 24 timer)</h3>
-      Graf her
+      <h3>Siste 24 timer</h3>
+      <div style="width: 400px;">
+        <canvas id="activitydata">{{chart}}</canvas>
+      </div>
     </div>
   </div>
 </div>
